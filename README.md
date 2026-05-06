@@ -1,47 +1,61 @@
-PlainChat: Memory-Enabled Travel Assistant
-PlainChat is a Python-based conversational AI designed to streamline travel and hospitality inquiries. Unlike basic keyword-matching bots, PlainChat utilizes Natural Language Processing (NLP) and a contextual memory system to engage in meaningful, multi-turn dialogues.
+# 🤖 PlainChat: Memory-Enabled Travel Assistant
 
-It is designed to be lightweight, efficient, and easily customizable via an external knowledge base.
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Core Features
-Contextual Memory: The chatbot remembers the "last intent" discussed, allowing users to ask follow-up questions (e.g., "Tell me more" or "What time?") without repeating the subject.
+**PlainChat** is a lightweight, context-aware chatbot designed for the travel and hospitality industry. It moves beyond simple keyword matching by implementing **Natural Language Processing (NLP)** and a **turn-based memory system**, allowing for more fluid and human-like interactions.
 
-Advanced NLP Pipeline: Uses the nltk library for tokenization and Porter Stemming. This ensures the bot understands word variations like "arriving," "arrival," and "arrive."
+---
 
-Text-to-Speech (TTS): Integrated with pyttsx3 to provide auditory feedback, making the interaction more accessible and immersive.
+## 🌟 Key Features
 
-Dynamic Knowledge Base: Powered by Keywordsv6.csv, allowing you to update the bot’s logic and responses without touching a single line of code.
+*   **🧠 Contextual Memory**  
+    The bot tracks the conversation state using a `last_intent` buffer. This allows users to ask follow-up questions like *"Tell me more"* or *"How much does it cost?"* without restating the topic.
+*   **🔡 Advanced NLP Pipeline**  
+    Integrated with `nltk`, the system uses **Porter Stemming** to normalize user input (e.g., converting "booking," "booked," and "books" to the root "book") for higher accuracy.
+*   **🗣️ Text-to-Speech (TTS)**  
+    Built-in auditory responses using the `pyttsx3` library, providing a hands-free interactive experience.
+*   **📊 Dynamic Knowledge Base**  
+    All logic is decoupled from the code. The bot’s "brain" is stored in `Keywordsv6.csv`, making it incredibly easy to update responses or add new travel categories.
 
-Scoring-Based Intent Recognition: Implements a weighted scoring system to determine the most relevant response based on user input.
+---
 
-Technical Architecture
-PlainChat follows a modular class-based structure:
+## 🛠️ Technical Architecture
 
-Preprocessing: Cleans input, removes noise, and reduces words to their root stems.
+PlainChat is built with a focus on modularity and efficiency:
 
-Intent Matching: Compares processed tokens against the Keywordsv6.csv database.
+1.  **`ChatbotV4.py`**: The core engine. It handles the NLP preprocessing, intent scoring, memory management, and the main conversation loop.
+2.  **`Keywordsv6.csv`**: The external dataset containing intents, keywords, and randomized response variations.
+3.  **Scoring Logic**: Instead of a "yes/no" match, the bot calculates a match score to ensure it provides the most statistically relevant answer.
 
-State Management: Tracks conversation turns and clears memory after a set threshold (5 turns) to ensure context remains fresh and relevant.
+---
 
-Getting Started
-Prerequisites
+## 🚀 Getting Started
 
-Python 3.x
-
-NLTK
-
-pyttsx3
-
-Installation
-
-Bash
+### Prerequisites
+Ensure you have Python 3.x installed along with the following libraries:
+```bash
 pip install nltk pyttsx3
-Running the Bot
-Ensure Keywordsv6.csv is in the root directory and run:
+```
 
-Bash
-python PlainChat.py
-Quick Tips for your GitHub Repo:
-The CSV File: Make sure you upload Keywordsv6.csv to the repo so others can run the code immediately.
+## 📖 Usage Example
 
-Requirements.txt: Create a file named requirements.txt and put nltk and pyttsx3 inside it. It makes your project look much more professional.
+> **You:** "I need help with my flight status."  
+> **Chatbot:** "I can certainly help with flight updates. Please provide your flight number."  
+> **You:** "What time does it arrive?" *(Contextual Follow-up)*  
+> **Chatbot:** "The current scheduled arrival is at 4:30 PM."
+
+---
+
+## 📁 Project Structure
+*   `ChatbotV4.py` — Main Python application.
+*   `Keywordsv6.csv` — Knowledge base and intent mapping[cite: 1].
+*   `README.md` — Project documentation.
+
+---
+
+## 👨‍💻 Author
+**Rishi Gupta**  
+*Grade 12 Student | Aspiring AI Developer*
+
+---
