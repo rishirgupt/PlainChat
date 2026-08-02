@@ -25,7 +25,7 @@
 PlainChat is built with a focus on modularity and efficiency:
 
 1.  **`ChatbotV4.py`**: The core engine. It handles the NLP preprocessing, intent scoring, memory management, and the main conversation loop.
-2.  **`Keywordsv6.csv`**: The external dataset containing intents, keywords, and randomized response variations.
+2.  **`Keywordsv6.csv`**: The external dataset containing intents, keywords, and randomised response variations.
 3.  **Scoring Logic**: Instead of a "yes/no" match, the bot calculates a match score to ensure it provides the most statistically relevant answer.
 
 ---
